@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handlebars To-Do App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>To-Do List</h1>
+      <input type="text" id="new-todo" placeholder="Add a new task" />
+      <button id="add-todo">Add Todo</button>
+      <div id="todo-list"></div>
+    </div>
+
+    <!-- Handlebars template from here -->
+    <script id="todo-template" type="text/x-handlebars-template">
+      <ul>
+        {{#each todos}}
+          <li>
+            <span style="text-decoration: {{#if completed}}line-through{{/if}}">{{text}}</span>
+            <button onclick="toggleTodo({{id}})">Toggle</button>
+            <button onclick="deleteTodo({{id}})">Delete</button>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
